@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Actu App - Éditeur</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="accueil.html">Actualités Polytecniciennes</a></h1>
+        <div>
+            <img src="images/Logo.png" width="70px" height="70px" alt="logo">
+            <button id="logoutButton">Deconnexion</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul id="navLinks"></ul>
+        <button id="addButton">Ajouter article</button>
+    </nav>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Ajouter un article</h2>
+            <form id="addForm">
+                <label for="titre">Titre</label>
+                <input type="text" id="titre" name="titre" required>
+
+                <label for="contenu">Contenu</label>
+                <textarea id="contenu" name="contenu" required></textarea>
+
+                <label for="categorie">Catégorie</label>
+                <select id="categorie" name="categorie" required>
+                    <!-- Les options de catégories seront générées dynamiquement -->
+                </select>
+
+                <p style="color: red; font-size: 15px;" id="erreur-message"></p>
+                <div style="display: flex;justify-content: flex-end;">
+                    <button type="submit">Enregister</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="UpdateModalTitle">Modifier l'article</h2>
+            <form id="updateForm">
+                <label for="titre">Titre</label>
+                <input type="text" id="updateTitre" name="titre" required>
+
+                <label for="contenu">Contenu</label>
+                <textarea id="updateContenu" name="contenu" required></textarea>
+
+                <label for="categorie">Catégorie</label>
+                <select id="updateCategorie" name="categorie" required>
+                    <!-- Les options de catégories seront générées dynamiquement -->
+                </select>
+
+                <p style="color: red; font-size: 15px;" id="erreur-message"></p>
+                <div style="display: flex;justify-content: flex-end;">
+                    <button type="submit">Enregister</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="deleteModalTitle"></h2>
+            <p id="deleteModalContent"></p>
+            <p style="color: red; font-size: 15px;" id="erreur-message2"></p>
+            <div class="actions">
+                <button id="deleteConfirmButton">Confirmer</button>
+                <button id="deleteCancelButton">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="addModalTitle">Ajouter une catégorie</h2>
+            <form id="addForm2">
+                <label for="categoryName">Nom de la catégorie</label>
+                <input type="text" id="categoryName" name="categoryName" required>
+
+                <p style="color: red; font-size: 15px;" id="addErrorMessage"></p>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button type="submit">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="editModalTitle">Modifier la catégorie</h2>
+            <form id="editForm">
+                <label for="editCategoryName">Nom de la catégorie</label>
+                <input type="text" id="editCategoryName" name="editCategoryName" required>
+
+                <p style="color: red; font-size: 15px;" id="editErrorMessage"></p>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button type="submit">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="deleteModal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="deleteModalTitle2"></h2>
+            <p id="deleteModalContent2"></p>
+            <p style="color: red; font-size: 15px;" id="deleteErrorMessage"></p>
+            <div class="actions">
+                <button id="deleteConfirmButton2">Confirmer</button>
+                <button id="deleteCancelButton2">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalArticleTitle"></h2>
+            <p id="modalArticleContent"></p>
+            <p id="modalArticleCreationDate"></p>
+            <p id="modalArticleModificationDate"></p>
+            <p id="modalArticleCategoryLabel"></p>
+        </div>
+    </div>
+
+    <main>
+        <div class="content">
+            <div id="articles">
+                <!-- Les articles seront ajoutés dynamiquement ici -->
+            </div>
+            <div class="pagination">
+                <button id="previousButton">Précédent</button>
+                <button id="nextButton">Suivant</button>
+            </div>
+        </div>
+        <div class="carousel">
+            <div class="carousel-container">
+                <img src="images/image1.jpg" height="360px" alt="Image 1">
+                <img src="images/image2.jpg" height="360px" alt="Image 2">
+                <img src="images/image3.jpg" height="360px" alt="Image 3">
+                <!-- Ajoutez d'autres images ici -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>À propos de nous</h3>
+                <p>Aboubakry BA</p>
+                <p>Abdoulaye BA</p>
+                <p>Aliou THIAM</p>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contactez-nous</h3>
+                <p>Adresse : Campus ESP Dakar</p>
+                <p>Téléphone : 774954357</p>
+                <p>Email : contact@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Tous droits réservés &copy; 2023 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Actualités Polytecniciennes
+                &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Ecole Supérieur Polytecnique</p>
+        </div>
+    </footer>
+
+    <script>
+        // Vérifier si l'utilisateur est connecté en vérifiant la présence de la session storage
+        if (!sessionStorage.getItem('loggedIn')) {
+            // L'utilisateur n'est pas connecté, rediriger vers la page de connexion
+            window.location.href = 'accueil.html';
+        }
+    </script>
+    <script src="script2.js"></script>
+</body>
+
+</html>

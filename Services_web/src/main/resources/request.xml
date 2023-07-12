@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:tns="http://com.al.soap">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <tns:obtenirUtilisateurParIdRequest>
+            <tns:id>123</tns:id>
+        </tns:obtenirUtilisateurParIdRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

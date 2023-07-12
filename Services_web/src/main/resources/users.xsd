@@ -1,0 +1,147 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com.al.soap"
+           targetNamespace="http://com.al.soap" elementFormDefault="qualified">
+
+    <xs:simpleType name="userType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ADMIN"/>
+            <xs:enumeration value="EDITEUR"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="user">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="login" type="xs:string"/>
+            <xs:element name="motDePasse" type="xs:string"/>
+            <xs:element name="token" type="xs:string" minOccurs="0"/>
+            <xs:element name="type" type="tns:userType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="listerUtilisateursRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="listerUtilisateursResponse">
+        <xs:sequence>
+            <xs:element name="utilisateurs" type="tns:user" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="ajouterUtilisateurRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ajouterUtilisateurResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtenirUtilisateurParIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtenirUtilisateurParIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="modifierUtilisateurRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="modifierUtilisateurResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="supprimerUtilisateurRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="supprimerUtilisateurResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="authentifierUtilisateurRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="login" type="xs:string"/>
+                <xs:element name="motDePasse" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="authentifierUtilisateurResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="genererTokenUtilisateurRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="genererTokenUtilisateurResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="supprimerTokenUtilisateurRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="supprimerTokenUtilisateurResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="utilisateur" type="tns:user" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Actu App</title>
+</head>
+
+<body>
+  <header>
+    <h1><a href="./accueil.html">Actualités Polytecniciennes</a></h1>
+    <p>
+      <img src="images/Logo.png" width="70px" height="70px" alt="logo">
+    </p>
+  </header>
+
+  <nav>
+    <ul id="navLinks"></ul>
+    <button id="openModalButton">Connexion</button>
+  </nav>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Connexion</h2>
+      <form id="loginForm">
+        <label for="login">Login</label>
+        <input type="text" id="login" name="login" required>
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required>
+
+        <p style="color: red; font-size: 15px;" id="erreur-message"></p>
+        <div style="display: flex; justify-content: flex-end;">
+          <button type="submit">Se connecter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="articleModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalContent"></p>
+      <p id="modalDate"></p>
+      <p id="modalCategory"></p>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalArticleTitle"></h2>
+      <p id="modalArticleContent"></p>
+      <p id="modalArticleCreationDate"></p>
+      <p id="modalArticleModificationDate"></p>
+      <p id="modalArticleCategoryLabel"></p>
+    </div>
+  </div>
+
+  <main>
+    <div class="content">
+      <div id="articles">
+        <!-- Les articles seront ajoutés dynamiquement ici -->
+      </div>
+      <div class="pagination">
+        <button id="previousButton">Précédent</button>
+        <button id="nextButton">Suivant</button>
+      </div>
+    </div>
+    <div class="carousel">
+      <div class="carousel-container">
+        <img src="images/image1.jpg" height="442px" alt="Image 1">
+        <img src="images/image2.jpg" height="442px" alt="Image 2">
+        <img src="images/image3.jpg" height="442px" alt="Image 3">
+        <!-- Ajoutez d'autres images ici -->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>À propos de nous</h3>
+        <p>Aboubakry BA</p>
+        <p>Abdoulaye BA</p>
+        <p>Aliou THIAM</p>
+      </div>
+      <div class="footer-section contact">
+        <h3>Contactez-nous</h3>
+        <p>Adresse : Campus ESP Dakar</p>
+        <p>Téléphone : 774954357</p>
+        <p>Email : contact@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Tous droits réservés &copy; 2023 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Actualités Polytecniciennes
+        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Ecole Supérieur Polytecnique</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
