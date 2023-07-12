@@ -68,16 +68,16 @@ function afficherArticles() {
             // Populate the modal with article information
             document.getElementById('modalArticleTitle').textContent = article.titre;
             document.getElementById('modalArticleContent').textContent = article.contenu;
-            document.getElementById('modalArticleCreationDate').textContent = formatDate(article.dateCreation);
-            document.getElementById('modalArticleModificationDate').textContent = formatDate(article.dateModification);
-            document.getElementById('modalArticleCategoryLabel').textContent = article.categorieLabel;
+            document.getElementById('modalArticleCreationDate').innerHTML = `<h4>Date Création: ${formatDate(article.dateCreation)}</h4>`;
+            document.getElementById('modalArticleModificationDate').innerHTML = `<h4>Date Modification: ${formatDate(article.dateModification)}</h4>`;
+            document.getElementById('modalArticleCategoryLabel').innerHTML = `<h4>Categorie: ${article.categorie.libelle}</h4>`;
 
             // Show the modal
             var modal = document.getElementById('myModal');
             modal.style.display = "block";
 
             // Close the modal when the close button or outside modal area is clicked
-            var closeBtn = document.getElementsByClassName("close")[0];
+            var closeBtn = document.getElementById("close");
             modal.onclick = function (event) {
                 if (event.target === modal || event.target === closeBtn) {
                     modal.style.display = "none";
@@ -219,6 +219,11 @@ var closeButton = document.getElementsByClassName("close")[0];
 var loginForm = document.getElementById("loginForm");
 
 openModalButton.addEventListener("click", function () {
+    // Vérifier si l'utilisateur est déjà connecté
+    if (sessionStorage.getItem('loggedIn')) {
+        window.location.href = 'editeur.html';
+        return;
+    }
     modal.style.display = "block";
 });
 
